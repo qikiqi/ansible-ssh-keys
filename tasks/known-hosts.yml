@@ -14,8 +14,8 @@
   ansible.builtin.file:
     path: "{{ item.item }}"
     state: directory
-    owner: root
-    group: root
+    owner: "{{ inventory_hostname }}"
+    group: "{{ inventory_hostname }}"
     mode: 0755
   with_items: "{{ _stat_directories.results }}"
   when: not item.stat.exists | bool
@@ -25,10 +25,10 @@
 
 - name: known-hosts | update file
   ansible.builtin.template:
-    src: "{{ ssh_keys_known_hosts_path.lstrip('/') }}.j2"
+    src: "ssh_known_hosts.j2"
     dest: "{{ ssh_keys_known_hosts_path }}"
-    owner: root
-    group: root
+    owner: "{{ inventory_hostname }}"
+    group: "{{ inventory_hostname }}"
     mode: 0644
   tags:
     ssh-keys-known-hosts-update
