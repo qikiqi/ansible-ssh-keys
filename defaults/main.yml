@@ -6,3 +6,4 @@ ssh_keys_private_keys: []
 ssh_keys_public_keys: []
 ssh_keys_authorized_keys: []
 ssh_keys_known_hosts: []
+ssh_keys_known_hosts_path: "~/.ssh/known_hosts_ansible"
