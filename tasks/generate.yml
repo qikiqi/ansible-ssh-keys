@@ -38,7 +38,7 @@
 
     - name: generate | generate public ssh key
       community.crypto.openssl_publickey:
-        path: "{{ item.path }}.pub"
+        path: "{{ item.path | splitext | first }}.pub"
         force: "{{ item.force | default(false) }}"
         format: "{{ item.format | default('OpenSSH') }}"
         owner: "{{ item.owner }}"
