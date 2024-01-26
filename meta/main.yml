@@ -3,9 +3,6 @@
 galaxy_info:
   author: qikiqi
   role_name: ssh_keys
-  original_author: oefenweb
-  original_role: oefenweb.ssh_keys
-  original_company: Oefenweb.nl B.V.
   description: Fork of oefenweb.ssh_keys. Manage ssh public key authentication (public / private / authorized keys and known hosts) in Debian-like systems
   license: MIT
   min_ansible_version: 2.10.0
