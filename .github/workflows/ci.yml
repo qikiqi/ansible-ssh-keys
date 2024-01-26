@@ -44,9 +44,9 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - distro: debian8
-          - distro: debian9
           - distro: debian10
+          - distro: debian11
+          - distro: debian12
           - distro: ubuntu1604
             ansible-version: '>=2.10, <2.11'
           - distro: ubuntu1604
@@ -65,14 +65,14 @@ jobs:
           python-version: '3.x'
 
       - name: Install test dependencies
-        run: pip install 'ansible${{ matrix.ansible-version }}' molecule[docker] docker
+        run: pip install 'ansible${{ matrix.ansible-version }}' molecule-plugins[docker] docker
 
       - name: Run Molecule tests
         run: |
           molecule test
         env:
           ANSIBLE_FORCE_COLOR: '1'
-          ANSIBLE_VERBOSITY: '3'
+          ANSIBLE_VERBOSITY: '2'
           MOLECULE_DEBUG: '1'
           MOLECULE_DISTRO: "${{ matrix.distro }}"
           PY_COLORS: '1'
